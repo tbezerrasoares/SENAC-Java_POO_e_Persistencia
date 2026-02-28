@@ -51,7 +51,7 @@ A disciplina foca na construção de aplicações completas utilizando a linguag
 ---
 
 ## 📂 Estrutura do Repositório
-- `/exercicios`: Listas de exercícios semanais.
+- `/Lista_Atividades`: Listas de atividades que serão avaliadas ao final da disciplina.
 - `/atividades-em-aula`: Códigos desenvolvidos durante as aulas.
 - `/Livros`: Livros de referencias da disciplina
 - `/Slides`: Slides da sala de aula
