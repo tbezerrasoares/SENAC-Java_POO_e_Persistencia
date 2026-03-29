@@ -1,0 +1,24 @@
+Gerenciador de Inventário de Ativos de TI (GIAT)
+1. Visão Geral
+O projeto consiste no desenvolvimento de uma aplicação robusta para o controle de ativos tecnológicos de uma organização (hardware e software). O sistema deve permitir que o setor de TI gerencie o ciclo de vida de equipamentos como notebooks e periféricos, além do controle de expiração de licenças de software.
+2. Objetivos de Aprendizado e Aplicação (POO)
+O foco principal deste projeto é a estruturação de dados e a segurança da informação através dos pilares da Orientação a Objetos abordados no curso:
+Encapsulamento e Validação: Todos os atributos das classes de ativos (ex: Ativo, Hardware, Software) devem ser privados. A implementação de métodos Getters e Setters deve obrigatoriamente incluir lógica de validação, impedindo o cadastro de números de patrimônio negativos ou datas de aquisição futuras.
+Herança: Utilizar a relação "é um" para especializar os tipos de ativos, garantindo que características comuns sejam herdadas de uma classe base.
+Modificadores de Acesso: Aplicar corretamente private, public e protected para restringir o acesso direto aos dados sensíveis do inventário.
+3. Requisitos de Persistência (JDBC)
+A aplicação deve garantir que os dados sejam armazenados de forma permanente e organizada:
+Padrão DAO (Data Access Object): Implementar classes DAO para isolar a lógica de acesso ao banco de dados SQL das regras de negócio em Java.
+CRUD Completo: O sistema deve ser capaz de realizar as quatro operações fundamentais: Criar (cadastrar novo ativo), Ler (listar inventário), Atualizar (editar informações de hardware) e Deletar (dar baixa em ativos obsoletos).
+ConnectionFactory: Centralizar a criação de conexões com o banco de dados e garantir o tratamento de exceções com blocos try-catch.
+4. Interface Gráfica (JavaFX)
+A interação com o usuário deve ser moderna e eficiente, utilizando os recursos do Módulo 3 do plano de ensino:
+Tabelas Dinâmicas (TableView): Exibir os ativos em uma grade organizada, permitindo a visualização rápida do estado do inventário.
+Organização de Layout: Utilizar VBox, HBox ou GridPane para criar formulários de entrada de dados intuitivos.
+Controladores: Vincular os eventos de clique da interface às operações do Banco de Dados através das classes controladoras.
+5. Entregas Esperadas
+Ao concluir a Semana 15, a dupla deverá entregar:
+Diagrama de Classes: Demonstrando a hierarquia de herança e o encapsulamento.
+Script SQL: Comandos DDL para criação das tabelas de ativos.
+Software Funcional: Aplicação capaz de realizar o ciclo completo de gestão de um ativo (do cadastro à baixa).
+

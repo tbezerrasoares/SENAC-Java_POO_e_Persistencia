@@ -1,0 +1,24 @@
+Automatizador de Backup de Banco de Dados
+1. Visão Geral
+A perda de dados é um dos maiores riscos em TI. Para mitigar isso, o objetivo deste projeto é desenvolver um Automatizador de Backup, um software utilitário que permite ao administrador configurar e executar a exportação de scripts SQL (DML e DDL) de forma organizada. O sistema deve ser capaz de gerar arquivos de salvaguarda do banco de dados e manter um rastro de auditoria sobre quando e onde esses backups foram armazenados.
+2. Objetivos de Aprendizado e Aplicação (POO)
+Este projeto exige que a dupla utilize mecanismos de reutilização de código e herança para gerenciar diferentes estratégias de exportação:
+Uso da palavra-chave super: O sistema deve possuir uma hierarquia de classes para diferentes tipos de backup (ex: BackupBase, BackupCompleto, BackupDiferencial). Espera-se que a dupla utilize o super para chamar construtores e métodos da classe pai, estendendo as funcionalidades básicas (como definição de destino) com comportamentos específicos (como filtros de tabelas).
+Herança e Especialização: Implementar a lógica onde uma rotina de backup específica herda as propriedades de conexão de uma classe genérica.
+Encapsulamento: Proteger os caminhos de diretórios e configurações do SGBD, garantindo que o estado do objeto de backup seja consistente antes da execução.
+3. Requisitos de Persistência (JDBC)
+Embora o software gere arquivos externos (.sql), ele deve usar o banco de dados para sua própria gestão interna, conforme o Módulo 4:
+Registro de Logs de Auditoria: Cada execução de backup deve gerar um log no banco de dados contendo o status (Sucesso/Falha), a data/hora e o caminho absoluto do arquivo gerado no disco.
+Persistência de Configurações: Armazenar no banco os diretórios padrão e as preferências do usuário, evitando que ele precise reconfigurar o software a cada inicialização.
+Tratamento de Exceções de IO e SQL: O projeto deve lidar com erros de permissão de escrita em disco e falhas de rede no banco simultaneamente, utilizando blocos try-catch aninhados ou múltiplos.
+4. Interface Gráfica e UX (JavaFX)
+A interface deve focar na facilidade de configuração e no feedback visual das operações:
+Seletores de Diretório (DirectoryChooser): Em vez de digitar caminhos manualmente, o usuário deve interagir com componentes nativos do JavaFX para selecionar onde os backups serão salvos.
+Feedback de Execução: Uso de ProgressBar ou indicadores visuais que mostrem que o processo de backup está em andamento.
+Lista de Histórico: Uma TableView que consulta o banco de dados e mostra ao usuário todos os backups realizados anteriormente, permitindo identificar falhas rapidamente.
+5. Entregas Esperadas
+Ao final a dupla deverá apresentar:
+Software Funcional: Capaz de disparar um comando de exportação e gerar um arquivo físico no diretório escolhido.
+Estrutura de Classes: Explicação de como a palavra-chave super foi fundamental para a arquitetura das rotinas de backup.
+Banco de Dados de Gestão: Tabelas SQL populadas com o histórico de logs resultantes dos testes realizados.
+

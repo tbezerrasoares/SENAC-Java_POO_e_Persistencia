@@ -1,0 +1,32 @@
+Sistema de Gestão Escolar Web-Style (SGE-Enterprise)
+1. Visão Geral
+O objetivo deste projeto é o desenvolvimento de uma aplicação de nível corporativo para a automação de processos acadêmicos. O SGE-Enterprise deve simular um sistema real de gestão escolar, onde o foco principal não é apenas o cadastro de dados, mas a implementação de regras de negócio complexas (cálculos de médias, verificação de frequência mínima e pré-requisitos de matrícula). O sistema deve integrar de forma fluida uma interface gráfica moderna ao armazenamento persistente em banco de dados.
+2. Objetivos de Aprendizado e Aplicação (POO)
+Este projeto é o ápice do plano de ensino e exige a aplicação integrada de todos os módulos:
+Arquitetura de Modelagem: Criar uma estrutura de classes sólida para Aluno, Professor, Disciplina e Turma. Espera-se o uso de Herança para especializar tipos de usuários e Composição para associar alunos a turmas.
+Regras de Negócio e Encapsulamento: A lógica de aprovação (ex: média >= 7.0 e frequência >= 75%) deve estar protegida dentro dos modelos. Os Setters devem validar entradas (ex: impedir notas maiores que 10 ou frequências negativas).
+Membros Estáticos: Uso de constantes para definir parâmetros globais do sistema, como o nome da instituição ou os critérios de aprovação vigentes.
+3. Requisitos de Persistência (JDBC)
+O projeto exige uma camada de dados profissional e organizada:
+Modelagem Relacional (SQL Master): Criação de um esquema de banco de dados com chaves primárias e estrangeiras para garantir a integridade dos dados acadêmicos.
+Padrão DAO (Data Access Object): Implementação de uma camada de persistência robusta. Cada entidade do sistema deve ter seu respectivo DAO, isolando totalmente o código SQL da lógica de negócio Java.
+Relatórios Dinâmicos: O sistema deve ser capaz de realizar consultas complexas no banco para gerar listas de alunos aprovados, boletins e pautas de frequência.
+4. Interface Gráfica e Dashboards (JavaFX)
+A experiência do usuário deve refletir sistemas "Web-Style" modernos:
+Dashboards Avançados: Uso de GridPane para criar painéis de controle que mostrem estatísticas rápidas (ex: total de alunos, média geral da turma).
+Formulários de Cadastro: Telas intuitivas para entrada de dados com feedback visual imediato em caso de erro de validação.
+Navegação Sistêmica: Um menu principal que permita transitar entre a gestão de alunos, professores e o lançamento de notas.
+5. Divisão de Responsabilidades (Equipe de 5 Alunos)
+Para garantir a entrega em 8 semanas, a equipe deve se organizar nos seguintes papéis:
+Model Architect: Responsável pelos diagramas e classes POO.
+SQL Master: Responsável pelo banco de dados e scripts DDL/DML.
+Business Rules: Responsável pela lógica de aprovação e validação interna.
+Persistence Layer: Responsável pela conexão JDBC e todos os métodos CRUD.
+Front-end JavaFX: Responsável pelo design das telas, layouts e controladores.
+6. Entregas Esperadas
+Ao final a equipe apresentará:
+Software Completo: Aplicação funcional integrada (Tela <-> Lógica <-> Banco).
+Documentação Técnica: Breve descrição da arquitetura e das regras de negócio implementadas.
+Demonstração de Cenários: O sistema deve processar o lançamento de notas de uma turma inteira e gerar o status final de cada aluno automaticamente.
+
+

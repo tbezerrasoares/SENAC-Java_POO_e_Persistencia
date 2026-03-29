@@ -1,0 +1,31 @@
+J-WebStack (Plataforma de Deploy Automatizado)
+1. Visão Geral
+O objetivo deste projeto é desenvolver uma ferramenta que simule o comportamento de uma PaaS (Platform as a Service), como o Heroku ou AWS Elastic Beanstalk. O J-WebStack permitirá que desenvolvedores subam suas aplicações (arquivos .jar ou .war) através de um painel central. O sistema Java será responsável por "orquestrar" o ambiente: ao receber o arquivo, ele deve configurar as dependências, criar automaticamente o banco de dados necessário para aquela aplicação e colocar o serviço no ar, automatizando tarefas que antes seriam manuais e complexas.
+2. Objetivos de Aprendizado e Aplicação (POO)
+Este projeto foca na abstração de processos e automação de sistemas, utilizando os conceitos dos Módulos 2, 4 e 5:
+Interfaces e Contratos: Utilizar interfaces (ex: Deployer e Configurator) para definir como diferentes tipos de aplicações (Web, Console, Microserviços) devem ser instaladas no sistema.
+Polimorfismo: Implementar diferentes estratégias de deploy. Um WarDeployer pode configurar um servidor Tomcat, enquanto um JarDeployer executa o comando java -jar diretamente, ambos sob a mesma abstração.
+Tratamento de Exceções Críticas: Como o projeto lida com comandos de sistema operacional e arquivos externos, o uso rigoroso de try-catch é obrigatório para evitar que falhas em um deploy derrubem a plataforma inteira.
+3. Requisitos de Persistência (JDBC)
+A gestão da plataforma depende de um banco de dados central que organiza o ecossistema:
+Configurações de Instância: O banco de dados deve armazenar os metadados de cada site hospedado (nome, porta, caminho do arquivo, status e credenciais do banco de dados gerado).
+Automação SQL: O sistema deve ser capaz de executar scripts DDL via JDBC para criar, em tempo real, novos esquemas ou bancos de dados para as aplicações que estão sendo instaladas.
+Padrão DAO: Centralizar toda a gestão das aplicações hospedadas através de classes DAO robustas.
+4. Interface Gráfica e UX (JavaFX)
+A complexidade do backend deve ser escondida por uma interface simples e eficiente:
+Painel de Upload: Uso de componentes FileChooser para selecionar os pacotes de software e ProgressBar para indicar o progresso do upload e da configuração.
+Console de Status: Uma área de texto ou lista que mostre os logs do terminal (saída padrão) para que o usuário acompanhe se o site subiu com sucesso.
+Gestão de Recursos: Uso de TableView para listar todos os sites ativos, com opções de "Pausar", "Reiniciar" ou "Excluir" o deploy.
+5. Divisão de Responsabilidades (Equipe de 5 Alunos)
+Para garantir a entrega em 8 semanas, a equipe deve se organizar nos seguintes papéis:
+System Architect: Define a hierarquia de classes POO e os contratos das interfaces de Deploy.
+Database Admin: Modela o banco da plataforma e cria a lógica de criação dinâmica de bancos para os clientes.
+Automation Engineer: Desenvolve a lógica de execução de processos externos (usando ProcessBuilder) e manipulação de arquivos no disco.
+UX Designer: Cria a interface JavaFX focada na facilidade de uso (Upload e Dashboard).
+Integration Lead: Garante a comunicação entre a interface, a camada de automação e o banco de dados, atuando na resolução de conflitos técnicos.
+6. Entregas Esperadas
+Ao final a equipe apresentará:
+Plataforma em Operação: Realizar o upload de um arquivo e mostrar o sistema configurando o ambiente e "subindo" a aplicação.
+Demonstração de Banco de Dados: Mostrar o novo banco de dados criado automaticamente pelo sistema para a aplicação recém-instalada.
+Código-Fonte: Demonstrando a arquitetura baseada em interfaces e o tratamento de erros de sistema.
+

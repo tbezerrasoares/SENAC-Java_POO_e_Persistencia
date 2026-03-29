@@ -1,0 +1,24 @@
+Analisador de Log de Erros (Log Tracker)
+1. Visão Geral
+No dia a dia de um profissional de TI, analisar arquivos de log extensos e puramente textuais é uma tarefa exaustiva e propensa a erros. O objetivo deste projeto é desenvolver uma ferramenta utilitária que faça o parsing (leitura e interpretação) de arquivos de log de servidores, transformando dados brutos em informações organizadas, categorizadas e visualmente fáceis de interpretar.
+2. Objetivos de Aprendizado e Aplicação (POO)
+O foco central deste projeto é a robustez do software e a manipulação inteligente de dados externos, aplicando conceitos do Módulo 2 e 4:
+Tratamento de Exceções Personalizado: O sistema deve lidar com arquivos de log que podem estar corrompidos, inacessíveis ou em formatos inesperados. Espera-se que a dupla crie suas próprias classes de exceção (ex: LogFileException ou InvalidFormatException) para capturar e tratar erros de leitura de forma específica, indo além do simples try-catch genérico.
+Encapsulamento e Modelagem: Criar uma classe LogEntry que sanitize os dados lidos (Data, Hora, Nível de Erro e Mensagem), garantindo que apenas logs válidos sejam processados pela aplicação.
+Polimorfismo: Implementar diferentes níveis de severidade (INFO, WARNING, ERROR, CRITICAL) que podem ter comportamentos de processamento distintos dentro do sistema.
+3. Requisitos de Persistência (JDBC)
+O analisador não deve apenas exibir os dados, mas também servir como uma ferramenta de auditoria histórica:
+Importação Seletiva: O software deve identificar automaticamente logs marcados como "CRITICAL" ou "ERROR" e salvá-los permanentemente no banco de dados via JDBC.
+Padrão DAO: Implementar um LogDAO para gerenciar as inserções e permitir consultas posteriores por data ou tipo de erro.
+Banco de Dados de Auditoria: Criar tabelas SQL otimizadas para armazenar grandes volumes de mensagens de texto vindas dos arquivos de log.
+4. Interface Gráfica e UX (JavaFX)
+A interface deve converter um arquivo de texto confuso em uma visualização estruturada, utilizando os conceitos do Módulo 3:
+Organização com Layouts: Utilizar VBox (Vertical Box) para empilhar as entradas de log e HBox (Horizontal Box) dentro de cada linha para separar ícones, timestamps e mensagens de erro.
+Categorização Visual: Aplicar estilos diferentes (cores ou ícones) para cada categoria de log lida, facilitando a identificação visual rápida de problemas.
+Scroll e Performance: Garantir que a exibição de arquivos de log grandes seja fluida, utilizando componentes que suportem rolagem de texto.
+5. Entregas Esperadas
+Ao final a dupla deverá apresentar:
+Software Funcional: Capaz de abrir um arquivo .txt ou .log, processar o conteúdo e exibi-lo na tela de forma organizada.
+Código-Fonte: Com destaque para as Exceções Personalizadas criadas pelo grupo.
+Base de Dados: Demonstração dos erros críticos persistidos no banco de dados após a leitura de um arquivo de teste.
+

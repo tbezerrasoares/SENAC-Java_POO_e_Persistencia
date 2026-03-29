@@ -1,0 +1,24 @@
+Sistema de Gestão de Tickets (Help Desk)
+1. Visão Geral
+O objetivo deste projeto é desenvolver uma solução de software para otimizar o fluxo de trabalho de uma equipe de suporte técnico de TI. O Sistema de Gestão de Tickets permitirá a abertura, categorização e resolução de chamados, servindo como uma ferramenta centralizada para que técnicos organizem suas demandas diárias e priorizem problemas críticos da infraestrutura.
+2. Objetivos de Aprendizado e Aplicação (POO)
+Este projeto foca na flexibilidade do código e no uso avançado de herança e comportamento dinâmico:
+Polimorfismo e Sobrescrita (@Override): O sistema deve lidar com diferentes níveis de urgência (Ex: Baixa, Média, Alta ou Crítica). Espera-se que a dupla utilize o polimorfismo para sobrescrever métodos de cálculo de "Prazo de Resolução" ou "Prioridade de Exibição", onde cada nível de urgência dita uma regra de negócio diferente.
+Herança: Criação de uma classe base Ticket e subclasses especializadas que herdam atributos comuns (ID, descrição, solicitante) mas possuem comportamentos específicos.
+Encapsulamento: Proteção do status do chamado (Aberto, Em Atendimento, Concluído), garantindo que a transição de estados ocorra apenas através de métodos validados.
+3. Requisitos de Persistência (JDBC)
+A continuidade do serviço de suporte depende de uma base de dados sólida e confiável:
+Vínculo Classe-Banco: Mapear os objetos da classe Ticket para as tabelas do banco de dados relacional.
+Persistência via JDBC: Implementar a gravação de novos chamados e a atualização de status diretamente no banco.
+Histórico de Atendimento: O banco de dados deve armazenar não apenas o ticket atual, mas o histórico de quem o atendeu e quando ele foi finalizado.
+4. Interface Gráfica e UX (JavaFX)
+O sistema deve apresentar um fluxo de navegação profissional, simulando um ambiente de trabalho real:
+Fluxo de Janelas FXML: Implementar uma tela de Login para identificar o técnico e, após a autenticação, direcioná-lo para a Lista de Chamados.
+Controles de Interface: Uso de ListView ou TableView para listar os tickets, com diferenciação visual (cores ou ícones) para identificar chamados urgentes.
+Interatividade: Botões para "Assumir Chamado" ou "Finalizar" que disparam atualizações imediatas no banco de dados e refletem na interface.
+5. Entregas Esperadas
+Ao final da Semana 15, a dupla deverá apresentar:
+Aplicação Integrada: Software funcionando com navegação entre janelas e persistência de dados.
+Relatório de Lógica: Uma explicação breve de como o Polimorfismo foi aplicado para diferenciar o tratamento dos tickets por urgência.
+Script de Banco de Dados: Arquivo SQL com a estrutura de tabelas necessária para o funcionamento do Help Desk.
+

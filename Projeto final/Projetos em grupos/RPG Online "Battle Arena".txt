@@ -1,0 +1,29 @@
+Enunciado do Projeto: RPG Online "Battle Arena" (Game Loop & Sockets)
+1. Visão Geral
+O objetivo deste projeto é desenvolver um jogo de batalha por turnos que integre lógica de jogos, comunicação em rede e persistência de dados. O Battle Arena permitirá que usuários criem personagens, enfrentem desafios e progridam em nível, garantindo que suas conquistas sejam salvas permanentemente em um banco de dados. Este projeto simula o ciclo de desenvolvimento de um software de entretenimento moderno, unindo performance (Game Loop) e conectividade (Sockets).
+2. Objetivos de Aprendizado e Aplicação (POO)
+Este projeto exige um domínio profundo da estrutura de classes e contratos de comportamento, conforme os Módulos 1 e 2 do plano de ensino:
+Classes Abstratas e Interfaces: Utilizar uma classe abstrata Personagem para atributos base e uma Interface (ex: HabilidadeEspecial) para definir contratos de ataques. Isso garante que cada classe (Guerreiro, Mago) tenha comportamentos únicos sob uma estrutura comum.
+Herança e Polimorfismo: Implementar a lógica de combate onde o método atacar() se comporte de forma diferente dependendo da subclasse instanciada, utilizando a anotação @Override.
+Membros Estáticos e Constantes: Definir constantes final para limites de nível e membros static para gerenciar o estado global da arena.
+3. Requisitos de Persistência e Backend (JDBC)
+O progresso do jogador é o coração do RPG, exigindo uma integração robusta com o Módulo 4:
+Inventory & DB (DAO): Implementar um sistema de CRUD completo para gerenciar o inventário de itens e os atributos do personagem (HP, XP, Nível). Os dados devem ser recuperados do banco de dados no momento do login.
+Sincronização de Dados: Garantir que, ao final de cada batalha, os resultados (vitória/derrota e ganho de experiência) sejam persistidos via JDBC, tratando possíveis SQLException.
+4. Interface Gráfica e Game Loop (JavaFX)
+A interface deve ser dinâmica e responsiva, aplicando os conceitos do Módulo 3:
+JavaFX Graphics: Criar uma arena visual com ProgressBar para representar as barras de vida (HP) e botões de ação para os comandos do jogador.
+Multiplayer Handler (Sockets): Estabelecer uma conexão via Sockets para permitir que dois clientes (jogadores) enviem e recebam comandos de ataque, sincronizando o estado da batalha.
+5. Divisão de Responsabilidades (Equipe de 5 Alunos)
+Para garantir a entrega em 8 semanas, a equipe deve se organizar nos seguintes papéis:
+Game Engine: Responsável pelo loop do jogo e pela lógica matemática de cálculo de dano e atributos.
+Character Logic: Responsável pela arquitetura de classes (Guerreiro, Mago) e aplicação de polimorfismo.
+Inventory & DB: Responsável pela modelagem do banco de dados e implementação das classes DAO para salvar o progresso.
+JavaFX Graphics: Responsável pelo design das telas, animações de combate e componentes visuais de status.
+Multiplayer Handler: Responsável pela comunicação via Sockets e pela garantia de que as ações de um jogador cheguem ao outro.
+6. Entregas Esperadas
+Ao final a equipe deverá apresentar:
+O Jogo Funcional: Uma batalha completa com os dados sendo salvos e carregados do banco.
+Diagrama de Classes: Detalhando a herança dos personagens e as interfaces de combate.
+Demonstração de Conectividade: Dois jogadores em instâncias diferentes interagindo na mesma "Arena".
+

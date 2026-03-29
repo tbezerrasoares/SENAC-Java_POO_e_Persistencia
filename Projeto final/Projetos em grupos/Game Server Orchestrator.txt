@@ -1,0 +1,31 @@
+Game Server Orchestrator (GSO - Minecraft/RPG Style)
+1. Visão Geral
+O objetivo deste projeto é desenvolver um sistema de orquestração de servidores de jogos, simulando uma plataforma de "Host de Games". A aplicação permitirá que um usuário "alugue" e gerencie instâncias de servidores de diferentes tipos (como RPG, FPS ou Minecraft). O sistema Java será o cérebro da operação: ele deve ser capaz de instanciar o serviço, alocar recursos de hardware (como memória RAM específica para cada servidor) e garantir que o progresso e o status de cada "mundo" sejam salvos de forma persistente.
+2. Objetivos de Aprendizado e Aplicação (POO)
+Este projeto exige uma arquitetura que suporte diferentes comportamentos de jogos sob uma mesma base, aplicando os conceitos dos Módulos 2, 4 e 5:
+Polimorfismo e Herança: Implementar uma estrutura onde diferentes categorias de jogos herdino de uma classe base GameServer. O polimorfismo deve ser usado para que o método inicializar() execute comandos específicos para cada motor de jogo (ex: um servidor de RPG demanda carregamento de mapas, enquanto um de FPS foca em latência).
+Membros Estáticos (Static): Utilizar métodos e atributos estáticos para o controle global de recursos da máquina hospedeira. O sistema deve saber, a qualquer momento, quanta memória total está disponível no "pool" do servidor antes de permitir a criação de uma nova instância.
+Encapsulamento e Segurança: Proteger dados sensíveis de jogadores e configurações críticas de rede. O acesso aos diretórios de arquivos do servidor de jogo deve ser estritamente controlado por métodos validados, evitando corrupção de dados.
+3. Requisitos de Persistência (JDBC)
+A plataforma de gerenciamento precisa de uma base de dados sólida para o controle administrativo, conforme o Módulo 4:
+Gestão de Usuários e Assinaturas: O banco de dados deve armazenar o cadastro dos "Players", seus planos de pagamento e o status de seus servidores alugados.
+Padrão DAO (Data Access Object): Implementar CRUDs completos para gerenciar a persistência do progresso do mundo (último save, tempo de atividade e lista de jogadores banidos/permitidos).
+Integridade de Dados: Garantir que o status do servidor no banco de dados (Online/Offline) esteja sempre sincronizado com o processo real rodando no Java.
+4. Interface Gráfica e UX (JavaFX)
+A interface deve ser o "Painel de Controle" do jogador, utilizando os conceitos do Módulo 3:
+Console de Gerenciamento: Uma tela JavaFX que apresente botões para "Ligar", "Desligar" e "Reiniciar" o servidor de jogo.
+Monitor de Recursos: Exibição visual (via ProgressBar ou Labels) da memória alocada para o servidor do usuário versus o uso em tempo real.
+Feedback de Log: Uma área de texto que exiba a saída do terminal do servidor de jogo, permitindo que o dono do servidor acompanhe quem entrou ou saiu do mundo.
+5. Divisão de Responsabilidades (Equipe de 5 Alunos)
+Para garantir a entrega em 8 semanas, a equipe deve se organizar nos seguintes papéis:
+Backend Developer: Foca na arquitetura de classes e no polimorfismo para suportar diferentes tipos de jogos.
+Resource Manager: Desenvolve a lógica de controle de memória e processos, usando membros estáticos para gerenciar a saúde do servidor.
+Data Access (DAO): Responsável por toda a camada de banco de dados, desde o histórico de pagamentos até o status das instâncias.
+Frontend Developer: Cria a interface JavaFX (FXML e Controllers) para o painel de controle do usuário.
+Security Specialist: Implementa o encapsulamento rigoroso e validações de segurança para proteger os arquivos e as credenciais dos jogadores.
+6. Entregas Esperadas
+Ao final a equipe apresentará:
+Orquestrador Funcional: Demonstrar a criação de uma instância de servidor de jogo através da interface.
+Persistência de Progresso: Mostrar os dados do servidor sendo salvos e recuperados corretamente do banco de dados após um reinício.
+Relatório Técnico: Explicar como o polimorfismo permitiu que o sistema lidasse com diferentes gêneros de jogos (RPG/FPS) de forma simplificada.
+

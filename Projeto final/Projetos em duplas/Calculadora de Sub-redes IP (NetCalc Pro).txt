@@ -1,0 +1,24 @@
+Calculadora de Sub-redes IP (NetCalc Pro)
+1. Visão Geral
+No suporte e administração de redes, o cálculo preciso de endereçamento IP é fundamental para evitar conflitos e otimizar o tráfego. O objetivo deste projeto é desenvolver um utilitário que auxilie profissionais de TI a calcular automaticamente máscaras de sub-rede, endereços de broadcast, gateways padrão e o intervalo de IPs utilizáveis a partir de um IP e um prefixo (CIDR) fornecidos.
+2. Objetivos de Aprendizado e Aplicação (POO)
+O foco deste projeto é a separação clara entre a lógica matemática e a interface, utilizando os conceitos do Módulo 2:
+Validação via Setters: A classe de cálculo deve garantir a integridade dos dados. Os métodos Setters dos octetos de IP devem validar se os números estão no intervalo permitido (0 a 255), lançando avisos ou impedindo a entrada de valores inválidos.
+Encapsulamento e Métodos de Classe: A lógica de conversão decimal para binário e os cálculos de máscara devem ser isolados em métodos específicos, protegendo a inteligência do sistema de acessos externos diretos.
+Membros Estáticos (Static): Utilizar métodos estáticos para funções utilitárias que não dependem de uma instância específica, como a conversão de formatos de IP ou máscaras padrão.
+3. Requisitos de Persistência (JDBC)
+Embora o cálculo seja instantâneo, a aplicação deve oferecer um recurso de conveniência para o administrador, conforme o Módulo 4:
+Histórico de Consultas: O sistema deve salvar no banco de dados cada cálculo realizado com sucesso.
+Consulta Rápida: Implementar uma funcionalidade que permita ao usuário visualizar os últimos cálculos feitos, evitando que ele precise redigitar dados de redes configuradas recentemente.
+Padrão DAO: Toda a interação com a tabela de histórico (Insert e Select) deve ser feita via classes DAO, mantendo o código Java limpo e organizado.
+4. Interface Gráfica e UX (JavaFX)
+A interface deve ser projetada para ser rápida e funcional, aplicando os conceitos do Módulo 3:
+Foco em UX (Experiência do Usuário): A tela deve ser limpa, com campos de entrada claros para o IP e o CIDR (ex: /24).
+Separação de Camadas: O projeto deve utilizar o padrão MVC (Model-View-Controller), garantindo que a interface gráfica não contenha lógica matemática de rede, apenas chamadas para a classe de serviço.
+Exibição de Resultados: Uso de Labels e TextFields somente leitura para apresentar os resultados (IP da Rede, Broadcast, Primeiro e Último Host) de forma organizada em um GridPane.
+5. Entregas Esperadas
+Ao final a dupla deverá apresentar:
+Software Funcional: Uma calculadora que aceite um IP/Máscara e retorne os dados da rede corretamente.
+Relatório de Lógica: Explicação de como os Setters protegem o sistema contra IPs inválidos (ex: 256.0.0.1).
+Histórico Integrado: Demonstração da persistência no banco de dados, mostrando a lista de cálculos anteriores recuperada via JDBC.
+

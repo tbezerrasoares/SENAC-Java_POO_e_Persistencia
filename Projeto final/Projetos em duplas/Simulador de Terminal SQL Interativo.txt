@@ -1,0 +1,24 @@
+Simulador de Terminal SQL Interativo
+1. Visão Geral
+O objetivo deste projeto é desenvolver uma ferramenta de suporte para desenvolvedores e administradores de banco de dados: um console interativo capaz de executar comandos SQL diretamente através de uma interface Java. O sistema deve atuar como uma ponte entre o usuário e o Sistema Gerenciador de Banco de Dados (SGBD), processando instruções DDL (como CREATE) e DML (como INSERT, SELECT, UPDATE) em tempo real.
+2. Objetivos de Aprendizado e Aplicação (POO)
+Este projeto desafia a dupla a utilizar abstrações de alto nível para gerenciar a execução de diferentes tipos de instruções:
+Uso de Interfaces: Implementar uma interface (ex: SQLCommandExecutor) para definir o contrato de execução de comandos. Isso permitirá criar diferentes implementações para comandos que retornam dados (como SELECT) e comandos que apenas modificam o banco (como INSERT ou DELETE).
+Tratamento de Exceções (Robustez): Como o usuário pode digitar comandos inválidos, o projeto exige um tratamento rigoroso de SQLException utilizando blocos try-catch. O sistema nunca deve "travar"; em vez disso, deve capturar o erro do Driver JDBC e exibi-lo de forma amigável na interface.
+Encapsulamento: Proteger as credenciais de conexão e os objetos de Statement e ResultSet dentro de classes controladoras.
+3. Requisitos de Persistência (JDBC)
+A aplicação terá um contato direto com a camada de dados, exigindo o domínio do Módulo 4 do curso:
+Driver JDBC: Configuração e carregamento manual do driver para estabelecer a comunicação com o banco.
+ConnectionFactory: Implementação de uma classe centralizada para fornecer conexões estáveis ao simulador.
+Execução Dinâmica: O código Java deve ser capaz de receber uma String (o comando SQL vindo da tela) e enviá-la para execução via JDBC.
+4. Interface Gráfica e UX (JavaFX)
+A interface deve simular a experiência de um terminal de banco de dados profissional:
+Entrada de Dados: Um componente TextArea amplo para que o usuário possa digitar ou colar scripts SQL multilinhas.
+Exibição de Resultados: Uso de um GridPane ou TableView para organizar dinamicamente as colunas e linhas retornadas pelo banco de dados.
+Feedback ao Usuário: Inclusão de Labels ou Pop-ups que indiquem o sucesso da operação ou o número de linhas afetadas por um comando.
+5. Entregas Esperadas
+Ao final a dupla deverá apresentar:
+A aplicação funcional integrada a um banco de dados local.
+Um relatório técnico descrevendo como as Interfaces foram utilizadas para separar a lógica de consulta da lógica de atualização.
+Uma demonstração de tratamento de erro, mostrando o sistema capturando uma falha de sintaxe SQL sem encerrar a execução.
+

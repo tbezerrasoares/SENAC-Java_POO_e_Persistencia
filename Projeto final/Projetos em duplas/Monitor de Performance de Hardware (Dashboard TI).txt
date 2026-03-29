@@ -1,0 +1,23 @@
+Monitor de Performance de Hardware (Dashboard TI)
+1. Visão Geral
+O objetivo deste projeto é desenvolver uma aplicação desktop em Java que atue como um painel de monitoramento (Dashboard) para recursos críticos de hardware de uma máquina. O sistema deve ser capaz de realizar a leitura em tempo real do uso de Processador (CPU), Memória RAM e Armazenamento (Disco), apresentando esses dados de forma visual e intuitiva para um administrador de TI.
+2. Objetivos de Aprendizado e Aplicação (POO)
+Espera-se que o grupo aplique os conceitos fundamentais de Orientação a Objetos e Estruturas de Controle explorados durante o curso:
+Herança e Polimorfismo: Implementar uma classe base (ex: ComponenteHardware) e derivar classes específicas para CPU, RAM e Disco, reutilizando código e definindo comportamentos especializados para cada métrica.
+Encapsulamento: Garantir que os dados brutos de leitura sejam protegidos e validados através de Getters e Setters antes de serem exibidos ou persistidos.
+Membros Estáticos (Static): Utilizar constantes e membros de classe para definir limites globais de segurança (ex: LIMITE_CRITICO_CPU = 90.0), facilitando a manutenção do código.
+3. Requisitos Funcionais (Interface e UX)
+A interface gráfica deve ser desenvolvida em JavaFX, integrando a lógica de negócio aos elementos visuais:
+Visualização em Tempo Real: Utilizar ProgressBar para indicar o percentual de uso e Labels para exibir valores numéricos exatos (ex: "4.2 GB de 8 GB em uso").
+Alertas Visuais: O sistema deve alterar a cor das barras ou emitir avisos quando os limites definidos nas constantes estáticas forem atingidos.
+Ciclo de Vida: A aplicação deve gerenciar corretamente a inicialização e o encerramento das leituras de hardware.
+4. Persistência de Dados e Relatórios
+O sistema não deve apenas exibir dados voláteis, mas também garantir a rastreabilidade das informações através do JDBC:
+Registro de Logs (Picos de Uso): Sempre que um recurso atingir um nível crítico, o sistema deve gravar automaticamente um log no banco de dados contendo o componente, o percentual de uso e o horário exato (Timestamp).
+Padrão DAO (Data Access Object): Toda a comunicação com o banco de dados deve ser feita através de uma camada de persistência isolada, garantindo a organização do projeto.
+Tratamento de Exceções: Implementar blocos try-catch para gerenciar falhas de conexão com o banco ou erros de leitura de hardware.
+5. Entregas Esperadas
+Ao final a dupla deverá apresentar:
+O código-fonte completo e organizado em pacotes (model, view, controller, dao).
+O script SQL para criação das tabelas de log e histórico.
+Uma demonstração funcional da aplicação monitorando a própria máquina de desenvolvimento.
